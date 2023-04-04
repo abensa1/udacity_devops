@@ -1,22 +1,15 @@
-## ND9991 - C2- Infrastructure as Code - Supporting Material and Starter Code
-This folder provides the supporting material and starter code for the "ND9991 - C2- Infrastructure as Code" course. This folder contains the following folders:
-1. project_starter - It contains the starter code.
-2. supporting_material - It contains the essential files (.yml, .json, .bat, .sh, and .jpeg) that were referred in the different lessons of this course.
-
-In addition to the current repo, there is one more repository, [nd9991-c2-Infrastructure-as-Code-v1-Exercises_Solution](https://github.com/udacity/nd9991-c2-Infrastructure-as-Code-v1-Exercises_Solution) that contains the solution to the exercises and video demos.  
+## Udacity DevOps
+This repo is/will be structured by project. All project content will be in the relevant project folder except for common variables/scripts which will be stored in the shared_varibales folder.
+Each folder will contain a seperate README file to provide info for that folder
 
 ### Dependencies
-##### 1. AWS account
+#### 1. AWS account
 You would require to have an AWS account to be able to build cloud infrastructure.
 
-##### 2. VS code editor
-An editor would be helpful to visualize the image as well as code. Download the VS Code editor [here](https://code.visualstudio.com/download).
+#### 2. S3 Folder
+I've used my own folder, so if you want to recreate some scripts you will need to create your own folder and add it as a varibale.
 
-##### 3. An account on www.lucidchart.com
-A free user-account on [www.lucidchart.com](www.lucidchart.com) is required to be able to draw the web app architecture diagrams for AWS.
-
-
-### How to run the supporting material?
+### How to run the create/update scripts?
 You can run the supporting material in two easy steps:
 ```bash
 # Ensure that the AWS CLI is configured before runniing the command below
