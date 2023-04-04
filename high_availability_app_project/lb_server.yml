@@ -88,6 +88,7 @@ Resources:
           Ebs:
             VolumeSize: '10'
       UserData:
+        ## be sure to update line 99 -> s3://bucket/file.html with your bucket 
         Fn::Base64: !Sub |
           #!/bin/bash
           apt-get update -y
@@ -95,7 +96,7 @@ Resources:
           apt-get install unzip awscli -y
           systemctl start apache2.service
           cd /var/www/html
-          aws s3 cp s3://aljaztest/sample2.html  index.html
+          aws s3 cp s3://bucket/file.html  index.html
           systemctl restart apache2.service
   WebAppGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
