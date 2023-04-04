@@ -18,4 +18,4 @@ This folder contains the following files:
 >>File contains the parameter information for lb_server.yml 
 
 ### <span style="color:red">NOTE :</span> ###
-you must chnage the s3 folder location in **lb_server_yml** file line 99 before you run the script. If you dont have an s3 bucket and index file you can replace line 99 with:  <br /> echo "Udacity Demo Web Server Up and Running" > index.html
+you must change the s3 folder location in **lb_server_yml** file line 99 before you run the script. If you don't have an s3 bucket and index file you can replace line 99 with:  <br /> echo "Udacity Demo Web Server Up and Running" > index.html
