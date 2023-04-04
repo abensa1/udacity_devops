@@ -3,6 +3,9 @@ Parameters:
   # but using them will make your cloudformation templates more reusable
   # use them for things that may change over time, such as instance type,
   # VPCs and so on.
+
+
+  
 Resources:
   # instace profile contains the IAM Role name(s) that we want to associate to our auto scaling EC2 Servers
   # never give too much permissions to your EC2 instances! if they get hacked, the permissions get hacked also!

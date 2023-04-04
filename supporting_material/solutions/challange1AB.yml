@@ -1,0 +1,34 @@
+Resources:
+  myWebAccessSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to our test host
+      VpcId: vpc-07bd0b658aa5ed738
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+      - IpProtocol: -1
+        FromPort: -1
+        ToPort: -1
+        CidrIp: 0.0.0.0/0
+  myWebServerInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: ami-086b3de06dafe36c5
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: "true"
+          DeviceIndex: "0"
+          GroupSet: 
+            - sg-0a199f9f5ab4b428d
+          SubnetId: subnet-0dd6dc531c0a02691
+      UserData: 
+        Fn::Base64: !Sub |
+         #!/bin/bash
+         sudo yum update -y
+         sudo yum install -y httpd
+         sudo systemctl start httpd
+         sudo systemctl enable httpd

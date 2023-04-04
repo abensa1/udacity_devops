@@ -1,0 +1,48 @@
+Description: Aljaz B / Udacity RDS Deployment
+
+Parameters:
+  EnvironmentName:
+    Description: An env name with prefix
+    Type: String
+
+  UserName:
+    Description: Usename For the Database
+    Type: String
+
+  Pwd:
+    Description: Password for the Database
+    Type: String
+
+Resources:
+  myDBSubnetGroup1:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupName: "RDSSubnet"
+      DBSubnetGroupDescription: "Subnets to use for the DB"
+      SubnetIds:
+        - Fn::ImportValue:
+            !Sub "${EnvironmentName}-PRI1-SN"
+        - Fn::ImportValue:
+            !Sub "${EnvironmentName}-PRI2-SN"
+
+  myDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: 20
+      # DBClusterIdentifier: "database-1"
+      MasterUsername: !Sub "${UserName}"
+      MasterUserPassword: !Sub "${Pwd}"
+      DBSubnetGroupName: !Ref myDBSubnetGroup1
+      PubliclyAccessible: false
+      Engine: "mysql"
+      DBInstanceClass: "db.t2.small"
+      MultiAZ: false
+      Port: "3306"
+      DBName: "firstdb"
+      VPCSecurityGroups:
+        - Fn::ImportValue:
+            !Sub "${EnvironmentName}-DEF-SG"
+      Tags:
+        - Key: "Name"
+          Value: !Sub "${EnvironmentName}-MS-SQL-RDS"
+    DeletionPolicy: "Retain"

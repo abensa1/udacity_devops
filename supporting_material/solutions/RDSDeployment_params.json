@@ -1,0 +1,14 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityProject"
+	},
+    {
+        "ParameterKey": "UserName",
+		"ParameterValue": "ABudacityuser"
+    },
+    {
+        "ParameterKey": "Pwd",
+		"ParameterValue": "pwdforthenewdb01"
+    }
+]
