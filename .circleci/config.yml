@@ -22,13 +22,13 @@ jobs:
     #       command: "echo Hello, World!"
   print_hello:
     docker:
-      - image: cicrleci/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - run:
           command: echo Hello
   print_world:
     docker:
-      - image: cicrleci/node:13.8.0
+      - image: circleci/node:13.8.0
     steps:
       - run:
           command: echo World
