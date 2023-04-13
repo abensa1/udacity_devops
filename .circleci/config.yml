@@ -20,6 +20,24 @@ jobs:
     #   - run:
     #       name: "Say hello"
     #       command: "echo Hello, World!"
+  variable_private:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "echo a context var that i just entered"
+          command: 
+            echo $Testing_env
+  varibale_public:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "echo a project var that i just entered"
+          command: 
+            echo $DOLLAR
   print_hello:
     docker:
       - image: circleci/node:13.8.0
@@ -39,8 +57,12 @@ workflows:
   # say-hello-workflow:
   welcome:
     jobs:
+      - build:
+        context: Testing_env_varibale
       # - say-hello
-      - print_hello
-      - print_world:
-          requires:
-            - print_hello
+      # - print_hello
+      # - print_world:
+          # requires:
+            # - print_hello
+      - variable_private
+      - varibale_public
