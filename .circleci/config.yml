@@ -57,12 +57,12 @@ workflows:
   # say-hello-workflow:
   test-env-varibales:
     jobs:
-      - build:
+      - variable_private:
           context: Testing_env_varibale
       # - say-hello
       # - print_hello
       # - print_world:
           # requires:
             # - print_hello
-      - variable_private
+      # - variable_private
       - varibale_public
