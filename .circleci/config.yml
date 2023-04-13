@@ -28,7 +28,8 @@ jobs:
       - run:
           name: "echo a context var that i just entered"
           command: 
-            echo $Testing_env
+            echo $TESTING_CONTEXT
+            echo "the current branch is" $CIRCLE_BRANCH
   varibale_public:
     docker:
       - image: circleci/node:13.8.0
