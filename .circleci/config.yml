@@ -58,7 +58,7 @@ workflows:
   welcome:
     jobs:
       - build:
-        context: Testing_env_varibale
+          context: Testing_env_varibale
       # - say-hello
       # - print_hello
       # - print_world:
